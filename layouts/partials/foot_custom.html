@@ -3,7 +3,9 @@
 
 <script async src="//yihui.name/js/center-img.js"></script>
 
+{{ if and (not (eq .Site.DisqusShortname "")) (not .Params.disable_comments) }}
 {{ template "_internal/disqus.html" . }}
+{{ end }}
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
