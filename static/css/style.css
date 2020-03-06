@@ -25,13 +25,12 @@ hr {
 /* code */
 pre {
   border: 1px solid #ddd;
-  box-shadow: 5px 5px 5px #eee;
   background: #f8f8f8;
-  padding: 1em;
+  padding: 0.5em;
   overflow-x: auto;
 }
 code { background: #f9f9f9; }
-pre code { background: none; }
+pre .hljs { background: none; }
 
 /* misc elements */
 img, iframe, video { max-width: 100%; }
