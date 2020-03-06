@@ -5,6 +5,14 @@ body {
   line-height: 1.5em;
 }
 
+/* links */
+a:link {
+  color: #243B4A;
+}
+a:hover {
+  color: #f46197;
+}
+
 /* header and footer areas */
 .menu { padding: 0; }
 .menu li { display: inline-block; }
