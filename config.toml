@@ -13,26 +13,6 @@ footnotereturnlinkcontents = "↩"
     post = "/post/:year/:month/:day/:slug/"
     note = "/note/:year/:month/:day/:slug/"
 
-[[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 2
-[[menu.main]]
-    name = "Categories"
-    url = "/categories/"
-    weight = 3
-[[menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 4
-[[menu.main]]
-    name = "Subscribe"
-    url = "/index.xml"
-
 [params]
     description = "A website built through Hugo and blogdown."
     footer = "&copy; [Yihui Xie](https://yihui.name) 2017 -- 2019 | [Github](https://github.com/yihui) | [Twitter](https://twitter.com/xieyihui)"
@@ -47,3 +27,68 @@ footnotereturnlinkcontents = "↩"
   [languages.fr]
     title = "Mon blog"
     contentDir = "content/fr"
+
+[[languages.en.menu.main]]
+    url    = "/"
+    name   = "Home"
+    weight = 1
+[[languages.es.menu.main]]
+    url    = "/"
+    name   = "Hogar"
+    weight = 1
+[[languages.fr.menu.main]]
+    url    = "/"
+    name   = "Accueil"
+    weight = 1
+
+[[languages.en.menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+[[languages.es.menu.main]]
+    name = "Acerca"
+    url = "/about/"
+    weight = 2
+[[languages.fr.menu.main]]
+    name = "À propos"
+    url = "/about/"
+    weight = 2
+
+[[languages.en.menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 3
+[[languages.es.menu.main]]
+    name = "Categorias"
+    url = "/categories/"
+    weight = 3
+[[languages.fr.menu.main]]
+    name = "Catégories"
+    url = "/categories/"
+    weight = 3
+
+[[languages.en.menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 4
+[[languages.es.menu.main]]
+    name = "Palabras clave"
+    url = "/tags/"
+    weight = 4
+[[languages.fr.menu.main]]
+    name = "Mots clés"
+    url = "/tags/"
+    weight = 4
+
+[[languages.en.menu.main]]
+    name = "Sucribe"
+    url = "/index.xml"
+    weight = 5
+[[languages.es.menu.main]]
+    name = "Sucríbete"
+    url = "/index.xml"
+    weight = 5
+[[languages.fr.menu.main]]
+    name = "Se souscrire"
+    url = "/index.xml"
+    weight = 5
