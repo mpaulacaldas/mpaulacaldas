@@ -10,6 +10,8 @@ title: Home
 
 **XMin** is a Hugo theme written by [Yihui Xie](https://yihui.name) in about four hours: half an hour was spent on the Hugo templates, and 3.5 hours were spent on styling. The main motivation for writing this theme was to provide a really minimal example to beginners of Hugo templates. This XMin theme contains about 130 lines of code in total, including the code in HTML templates and CSS (also counting empty lines).
 
+:smile:
+
 
 ```bash
 find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xargs wc -l
@@ -96,7 +98,7 @@ find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xarg
      113 ./public/en/note/2017/06/13/a-quick-note/index.html
      109 ./public/en/note/2017/06/14/another-note/index.html
      107 ./public/en/note/another-note/index.html
-     141 ./public/en/index.html
+     275 ./public/en/index.html
      119 ./public/en/post/2015/07/23/lorem-ipsum/index.html
      154 ./public/en/post/2015/07/23/hello-r-markdown/index.html
      130 ./public/en/post/index.html
@@ -140,7 +142,7 @@ find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xarg
       20 ./themes/hugo-xmin/layouts/partials/header.html
       51 ./themes/hugo-xmin/static/css/style.css
        7 ./themes/hugo-xmin/static/css/fonts.css
-   13562 total
+   13696 total
 ```
 
 I can certainly further reduce the code, for example, by eliminating the CSS, but I believe a tiny bit of CSS can greatly improve readability. You cannot really find many CSS frameworks that only contain 50 lines of code.

@@ -2,6 +2,7 @@ baseurl = "/"
 languageCode = "en"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
+enableEmoji = true
 title = "A minimal Hugo website"
 theme = "hugo-xmin"
 googleAnalytics = "UA-142117256-1"
