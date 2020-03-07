@@ -25,7 +25,7 @@ footnotereturnlinkcontents = "↩"
     title = "Mi bitácora"
     contentDir = "content/es"
   [languages.fr]
-    title = "Mon blog"
+    title = "Mon blogue"
     contentDir = "content/fr"
 
 [[languages.en.menu.main]]
