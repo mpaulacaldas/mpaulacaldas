@@ -23,6 +23,7 @@ a:hover {
   border-radius: 5px;
 }
 .menu, .article-meta, footer { text-align: center; }
+.lang-switch { font-weight: bold; }
 .title { font-size: 1.1em; }
 footer a { text-decoration: none; }
 hr {
