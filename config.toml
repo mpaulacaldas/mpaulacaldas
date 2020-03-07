@@ -41,9 +41,9 @@ footnotereturnlinkcontents = "↩"
   [languages.en]
     title = "My blog"
     contentDir = "content/en"
-  [languages.fr]
-    title = "Mon blog"
-    contentDir = "content/fr"
   [languages.es]
     title = "Mi bitácora"
     contentDir = "content/es"
+  [languages.fr]
+    title = "Mon blog"
+    contentDir = "content/fr"
