@@ -38,15 +38,15 @@ footnotereturnlinkcontents = "↩"
 
 [[languages.en.menu.main]]
     url    = "/"
-    name   = "Home"
+    name   = "Blog"
     weight = 1
 [[languages.es.menu.main]]
     url    = "/"
-    name   = "Hogar"
+    name   = "Bitácora"
     weight = 1
 [[languages.fr.menu.main]]
     url    = "/"
-    name   = "Accueil"
+    name   = "Blogue"
     weight = 1
 
 [[languages.en.menu.main]]
