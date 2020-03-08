@@ -63,32 +63,6 @@ footnotereturnlinkcontents = "↩"
     weight = 2
 
 [[languages.en.menu.main]]
-    name = "Categories"
-    url = "/categories/"
-    weight = 3
-[[languages.es.menu.main]]
-    name = "Categorias"
-    url = "/categories/"
-    weight = 3
-[[languages.fr.menu.main]]
-    name = "Catégories"
-    url = "/categories/"
-    weight = 3
-
-[[languages.en.menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 4
-[[languages.es.menu.main]]
-    name = "Palabras clave"
-    url = "/tags/"
-    weight = 4
-[[languages.fr.menu.main]]
-    name = "Mots clés"
-    url = "/tags/"
-    weight = 4
-
-[[languages.en.menu.main]]
     name = "Sucribe"
     url = "/index.xml"
     weight = 5
