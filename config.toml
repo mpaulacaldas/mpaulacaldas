@@ -63,7 +63,7 @@ footnotereturnlinkcontents = "↩"
     weight = 2
 
 [[languages.en.menu.main]]
-    name = "Sucribe"
+    name = "Suscribe"
     url = "/index.xml"
     weight = 5
 [[languages.es.menu.main]]
