@@ -13,6 +13,9 @@ footnotereturnlinkcontents = "↩"
 [markup]
   [markup.highlight]
     style = "xcode"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [permalinks]
     post = "/post/:year/:month/:day/:slug/"
