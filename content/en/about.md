@@ -1,6 +1,8 @@
 ---
 author: Yihui Xie
 title: About Hugo XMin
+toc: true
+markup: blackfriday
 disable_comments: true
 ---
 
