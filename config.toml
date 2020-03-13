@@ -6,7 +6,6 @@ enableEmoji = true
 title = "A minimal Hugo website"
 theme = "hugo-xmin"
 googleAnalytics = "UA-142117256-1"
-disqusShortname = "mpaulacaldas"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 footnotereturnlinkcontents = "↩"
 

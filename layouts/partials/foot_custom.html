@@ -5,8 +5,14 @@
 
 {{ template "_internal/google_analytics.html" . }}
 
-{{ if and (not (eq .Site.DisqusShortname "")) (not .Params.disable_comments) }}
-{{ template "_internal/disqus.html" . }}
+{{ if not .Params.disable_comments }}
+<script src="https://utteranc.es/client.js"
+        repo="mpaulacaldas/mpaulacaldas"
+        issue-term="comments :speech_balloon:"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 {{ end }}
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
