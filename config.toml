@@ -10,6 +10,10 @@ disqusShortname = "mpaulacaldas"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 footnotereturnlinkcontents = "↩"
 
+[markup]
+  [markup.highlight]
+    style = "xcode"
+
 [permalinks]
     post = "/post/:year/:month/:day/:slug/"
     note = "/note/:year/:month/:day/:slug/"
