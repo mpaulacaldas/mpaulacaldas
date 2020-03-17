@@ -1,7 +1,6 @@
 baseurl = "/"
 languageCode = "en"
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true
 enableEmoji = true
 title = "A minimal Hugo website"
 theme = "hugo-xmin"
@@ -27,13 +26,10 @@ footnotereturnlinkcontents = "↩"
 [languages]
   [languages.en]
     title = "My blog"
-    contentDir = "content/en"
   [languages.es]
     title = "Mi bitácora"
-    contentDir = "content/es"
   [languages.fr]
     title = "Mon blogue"
-    contentDir = "content/fr"
 
 [[languages.en.menu.main]]
     url    = "/"
