@@ -19,7 +19,7 @@ footnotereturnlinkcontents = "↩"
     note = "/note/:year/:month/:day/:slug/"
 
 [params]
-    description = "A website built through Hugo and blogdown."
+    description = "María Paula's R blog"
     footer = "&copy; [María Paula Caldas](https://mpaulacaldas.com) 2020 | [Github](https://github.com/mpaulacaldas) | [Twitter](https://twitter.com/mapaulacaldas)"
 
 [languages]
