@@ -1,4 +1,5 @@
-## Helful links
+# mpaulacaldas
 
-- [To add language switcher to hugo-xmin](https://github.com/yihui/hugo-xmin/issues/13#issuecomment-325255897)
-- [Define languages for each menu](https://gohugo.io/content-management/multilingual/#menus)
+This repo contains the source code for my personal website.
+
+The contents are licenced under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
