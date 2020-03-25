@@ -35,7 +35,10 @@ sub {
 }
 .menu, .article-meta, footer { text-align: center; }
 .lang-switch { font-weight: bold; }
-.title { font-size: 1.1em; }
+.title {
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
 footer a { text-decoration: none; }
 hr {
   border-style: dashed;
