@@ -58,6 +58,7 @@ pre .hljs { background: none; }
 
 /* misc elements */
 img, iframe, video { max-width: 100%; }
+img { border: 1px solid #ddd;;}
 main { hyphens: auto; }
 blockquote {
   background: #f9f9f9;
