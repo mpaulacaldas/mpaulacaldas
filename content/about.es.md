@@ -1,6 +1,7 @@
 ---
 title: Acerca
 disable_comments: true
+disable_reading: true
 ---
 
 ## Acerca de mi

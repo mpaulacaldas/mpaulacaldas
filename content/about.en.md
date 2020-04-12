@@ -1,6 +1,7 @@
 ---
 title: "About"
 disable_comments: true
+disable_reading: true
 ---
 
 ## About me
