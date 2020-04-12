@@ -1,7 +1,7 @@
 baseurl = "/"
 defaultContentLanguage = "en"
 enableEmoji = true
-title = "María Paula"
+title = "María Paula's R blog"
 theme = "hugo-xmin"
 googleAnalytics = "UA-142117256-1"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
