@@ -55,16 +55,3 @@ footnotereturnlinkcontents = "↩"
     name = "À propos"
     url = "/about/"
     weight = 2
-
-[[languages.en.menu.main]]
-    name = "Suscribe"
-    url = "/index.xml"
-    weight = 5
-[[languages.es.menu.main]]
-    name = "Sucríbete"
-    url = "/index.xml"
-    weight = 5
-[[languages.fr.menu.main]]
-    name = "Se souscrire"
-    url = "/index.xml"
-    weight = 5
