@@ -1,0 +1,112 @@
+---
+title: Retrieving RMarkdown YAML metadata
+author: ''
+date: '2020-04-13'
+tags:
+  - rmarkdown
+  - ymlthis
+slug: rmarkdown-yaml-metadata
+---
+
+
+
+<p>I recently discovered two nice features of the <a href="https://github.com/rstudio/rmarkdown/">rmarkdown</a> package that deal with the YAML metadata of R Markdown documents: the <code>metadata</code> object and the <code>yaml_front_matter()</code> function. Both of these are generally used “behind the scenes” in the code of other R packages, but I found them very useful in my day-to-day reporting workflow. In this post, I will explain my understanding of these objects, and I will show a couple of helper functions I created with the <a href="https://ymlthis.r-lib.org/index.html">ymlthis</a> package.</p>
+<div id="using-metadata-in-r-markdown-templates" class="section level2">
+<h2>Using <code>metadata</code> in R Markdown templates</h2>
+<p>The <code>metadata</code> object returns the YAML metadata of the <strong>current</strong> R Markdown document as a list. Keep in mind that this object is only created in the knit environment, i.e. when you render your document. For example, this post has the following metadata specified at the top of the <code>Rmd</code> file:</p>
+<pre class="yaml"><code>---
+title: Retrieving RMarkdown YAML metadata
+author: &#39;&#39;
+date: &#39;2020-04-13&#39;
+tags:
+- rmarkdown
+- ymlthis
+slug: rmarkdown-yaml-metadata
+---</code></pre>
+<p>Calling <code>metadata</code> will return a list with this metadata when we knit the document.</p>
+<pre class="r"><code>library(rmarkdown)
+metadata
+#&gt; $title
+#&gt; [1] &quot;Retrieving RMarkdown YAML metadata&quot;
+#&gt; 
+#&gt; $author
+#&gt; [1] &quot;&quot;
+#&gt; 
+#&gt; $date
+#&gt; [1] &quot;2020-04-13&quot;
+#&gt; 
+#&gt; $tags
+#&gt; [1] &quot;rmarkdown&quot; &quot;ymlthis&quot;  
+#&gt; 
+#&gt; $slug
+#&gt; [1] &quot;rmarkdown-yaml-metadata&quot;</code></pre>
+<p>In an interactive R session, <code>metadata</code> will return an empty list.</p>
+<p>Usually, we will refer to <code>metadata</code> parameters in inline code calls. For example, the following line in the source document</p>
+<pre><code>&gt; This post was written on `r format(as.Date(metadata$date), &#39;%B %d, %Y&#39;)`.</code></pre>
+<p>will be rendered as</p>
+<blockquote>
+<p>This post was written on April 13, 2020.</p>
+</blockquote>
+<p>I have found the <code>metadata</code> object to be particularly useful when creating templates. A great example is the <a href="https://github.com/rstudio-conf-2020/slide-templates/blob/master/xaringan/index.Rmd">xaringan template of the rstudio::conf2019 workshops</a>. RStudio’s template defines the title, subtitle, author and tutorial session in the YAML front matter of the R Markdown document, and later refers back to these objects via <code>metadata</code> to create the first slide of the presentation. This makes it easier to adapt the template as the main document parameters are defined at the top of the R Markdown file.</p>
+<p>You may have noticed that <code>metadata</code> is similar to the <code>params</code> list used in parametrised reports. The main difference between the two is that <code>params</code> is designed for <em>iteration</em>. This is because the fields specified in <code>params</code> can be easily overridden via <code>rmarkdown::render()</code>. If you want to learn more about parametrised reports, I recommend the <a href="https://bookdown.org/yihui/rmarkdown/parameterized-reports.html">bookdown book</a>, or <a href="https://resources.rstudio.com/rstudio-conf-2019/the-lazy-and-easily-distracted-report-writer-using-rmarkdown-and-parameterised-reports">Mike Smith’s Talk from rstudio::conf2019</a>. If you are interested in how <code>metadata</code> and <code>params</code> came to be, have a look at <a href="https://github.com/rstudio/rmarkdown/issues/33">issue #33</a> of the rmarkdown package.</p>
+</div>
+<div id="copying-defaults-with-yaml_front_matter-and-ymlthis" class="section level2">
+<h2>Copying defaults with <code>yaml_front_matter()</code> and <code>ymlthis</code></h2>
+<p>The <code>yaml_front_matter()</code> function returns a list with the YAML metadata of <strong>any</strong> R Markdown file. Unlike <code>metatdata</code>, <code>yaml_front_matter()</code> also works outside of the knit environment.</p>
+<pre class="r"><code>yaml_front_matter(&quot;index.en.Rmd&quot;) # provide file path
+#&gt; $title
+#&gt; [1] &quot;Retrieving RMarkdown YAML metadata&quot;
+#&gt; 
+#&gt; $author
+#&gt; [1] &quot;&quot;
+#&gt; 
+#&gt; $date
+#&gt; [1] &quot;2020-04-13&quot;
+#&gt; 
+#&gt; $tags
+#&gt; [1] &quot;rmarkdown&quot; &quot;ymlthis&quot;  
+#&gt; 
+#&gt; $slug
+#&gt; [1] &quot;rmarkdown-yaml-metadata&quot;</code></pre>
+<p>I was very excited when I learned about <code>yaml_front_matter()</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> because it allowed me to write a helper function for a repetitive task that I do all the time: opening up previous R Markdown document with a configuration I like, copying its YAML metadata, and using it to create or update another RMarkdown file.</p>
+<p>To do this, I took advantage of the <a href="https://ymlthis.r-lib.org/index.html">ymlthis</a> package, which provides tools to write YAML metadata of R Markdown documents.</p>
+<pre class="r"><code>library(magrittr) # for the pipe %&gt;%
+copy_yaml &lt;- function(input, ...) {
+  input %&gt;% 
+    rmarkdown::yaml_front_matter() %&gt;% # get the YAML metadata
+    ymlthis::yml() %&gt;%                 # transform list to yml object
+    ymlthis::yml_replace(...) %&gt;%      # replace fields specified in ...
+    ymlthis::use_yml()                 # copy YAML header to clipboard
+}</code></pre>
+<p>The <code>copy_yaml()</code> function defined above lets me grab the YAML metadata of any R Markdown document, update the fields that I wish to change, and get have the updated YAML header copied to my clipboard.</p>
+<pre class="r"><code>copy_yaml(
+  &quot;index.en.Rmd&quot;, 
+  title = &quot;New title&quot;, 
+  author = &quot;María Paula Caldas&quot;
+  )
+#&gt;   ---
+#&gt;   title: New title
+#&gt;   author: María Paula Caldas
+#&gt;   date: &#39;2020-04-13&#39;
+#&gt;   tags:
+#&gt;   - rmarkdown
+#&gt;   - ymlthis
+#&gt;   slug: rmarkdown-yaml-metadata
+#&gt;   ---
+#&gt; ● Paste into R Markdown or YAML file</code></pre>
+<p>I also wrote a similar function that creates a new R Markdown file with the YAML specifications of another.</p>
+<pre class="r"><code>create_with_yaml &lt;- function(input, output, ...) {
+  input %&gt;% 
+    rmarkdown::yaml_front_matter() %&gt;%
+    ymlthis::yml() %&gt;%
+    ymlthis::yml_replace(...) %&gt;%
+    ymlthis::use_rmarkdown(output) # creates an Rmd file
+}</code></pre>
+<p>Although simple, I find myself using these functions relatively often. I will definitely be looking more into ymlthis to see how I take advantage of more of its functionalities!</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Thanks to this <a href="https://community.rstudio.com/t/how-can-i-read-parse-the-metadata-from-an-rmarkdown-file/47886/8">answer</a> by Christophe Dervieux on RStudio Community.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
