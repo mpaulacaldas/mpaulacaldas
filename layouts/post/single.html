@@ -31,7 +31,7 @@
     {{ end }}
     {{ with .Site.Params.GithubSource}}
     <i class="fas fa-code-branch"></i>
-    <a href="{{ . }}{{ $.Scratch.Get "FilePath" }}">View source</a>
+    <a href="{{ . }}{{ $.Scratch.Get "FilePath" }}">{{ i18n "source" }}</a>
     {{ end }}
   {{ end }}
 </p>
