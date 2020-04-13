@@ -16,6 +16,24 @@
   {{ if not .Params.disable_reading }}
   <i class="fas fa-book-reader"></i> {{ .ReadingTime }} min
   {{ end }}
+  &nbsp;
+  {{ if .File.Path }}
+    {{ $.Scratch.Set "FilePath" .File.Path }}
+    {{ $RmdFile := (print .File.BaseFileName ".Rmd") }}
+    {{ $Files := readDir (print "content/" .File.Dir) }}
+    {{ if (where $Files "Name" $RmdFile) }}
+      {{ $.Scratch.Set "FilePath" (print .File.Dir $RmdFile) }}
+    {{ else }}
+      {{ $RmdFile := (print .File.BaseFileName ".Rmarkdown") }}
+      {{ if (where $Files "Name" $RmdFile) }}
+        {{ $.Scratch.Set "FilePath" (print .File.Dir $RmdFile) }}
+      {{ end }}
+    {{ end }}
+    {{ with .Site.Params.GithubSource}}
+    <i class="fas fa-code-branch"></i>
+    <a href="{{ . }}{{ $.Scratch.Get "FilePath" }}">View source</a>
+    {{ end }}
+  {{ end }}
 </p>
 </div>
 
