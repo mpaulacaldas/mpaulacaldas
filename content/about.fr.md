@@ -1,6 +1,5 @@
 ---
 title: À propos
-disable_reading: true
 ---
 
 ## À propos de moi

@@ -1,6 +1,5 @@
 ---
 title: Acerca
-disable_reading: true
 ---
 
 ## Acerca de mi

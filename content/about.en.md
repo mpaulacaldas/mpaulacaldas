@@ -1,6 +1,5 @@
 ---
 title: "About"
-disable_reading: true
 ---
 
 ## About me
