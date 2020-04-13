@@ -1,6 +1,5 @@
 ---
 title: À propos
-disable_comments: true
 disable_reading: true
 ---
 
