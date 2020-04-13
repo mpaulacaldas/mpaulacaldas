@@ -4,9 +4,9 @@
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
 {{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
 <p class="terms">
+  <i class="fa fa-folder fa-fw"></i>
   {{ range $i := (slice "categories" "tags") }}
   {{ with ($.Param $i) }}
-  <i class="fa fa-folder fa-fw"></i>
   {{ range $k := . }}
   <a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a>
   {{ end }}
