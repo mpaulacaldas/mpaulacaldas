@@ -2,6 +2,8 @@
 title: Retrieving RMarkdown YAML metadata
 author: ''
 date: '2020-04-13'
+categories:
+  - R
 tags:
   - rmarkdown
   - ymlthis
@@ -18,6 +20,7 @@ slug: rmarkdown-yaml-metadata
 title: Retrieving RMarkdown YAML metadata
 author: &#39;&#39;
 date: &#39;2020-04-13&#39;
+categories: R
 tags:
 - rmarkdown
 - ymlthis
@@ -34,6 +37,9 @@ metadata
 #&gt; 
 #&gt; $date
 #&gt; [1] &quot;2020-04-13&quot;
+#&gt; 
+#&gt; $categories
+#&gt; [1] &quot;R&quot;
 #&gt; 
 #&gt; $tags
 #&gt; [1] &quot;rmarkdown&quot; &quot;ymlthis&quot;  
@@ -63,6 +69,9 @@ metadata
 #&gt; $date
 #&gt; [1] &quot;2020-04-13&quot;
 #&gt; 
+#&gt; $categories
+#&gt; [1] &quot;R&quot;
+#&gt; 
 #&gt; $tags
 #&gt; [1] &quot;rmarkdown&quot; &quot;ymlthis&quot;  
 #&gt; 
@@ -88,6 +97,7 @@ copy_yaml &lt;- function(input, ...) {
 #&gt;   title: New title
 #&gt;   author: María Paula Caldas
 #&gt;   date: &#39;2020-04-13&#39;
+#&gt;   categories: R
 #&gt;   tags:
 #&gt;   - rmarkdown
 #&gt;   - ymlthis

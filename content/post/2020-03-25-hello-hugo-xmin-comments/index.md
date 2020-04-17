@@ -2,6 +2,8 @@
 title: 'Hello hugo-xmin! -- Part 1: Comments'
 author: ''
 date: '2020-03-25'
+categories:
+  - R
 tags:
   - blogdown
   - Hugo

@@ -1,7 +1,7 @@
 baseurl = "/"
 defaultContentLanguage = "en"
 enableEmoji = true
-title = "María Paula's R blog"
+title = "María Paula Caldas"
 theme = "hugo-xmin"
 googleAnalytics = "UA-142117256-1"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
@@ -19,7 +19,7 @@ footnotereturnlinkcontents = "↩"
     note = "/note/:year/:month/:day/:slug/"
 
 [params]
-    description = "María Paula's R blog"
+    description = "María Paula's blog"
     githubSource = "https://github.com/mpaulacaldas/mpaulacaldas/blob/master/content/"
     footer = "&copy; [María Paula Caldas](https://mpaulacaldas.com) 2020 | [Github](https://github.com/mpaulacaldas) | [Twitter](https://twitter.com/mapaulacaldas)"
 

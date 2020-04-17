@@ -3,7 +3,8 @@ title: 'Hello hugo-xmin! -- Part 2: Multilingual mode'
 author: ''
 date: '2020-03-25'
 slug: hello-hugo-xmin-multilingual-mode
-categories: []
+categories:
+  - R
 tags:
   - blogdown
   - Hugo
