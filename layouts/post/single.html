@@ -6,7 +6,11 @@
 <p class="terms">
   {{ range $i := (slice "categories" "tags") }}
   {{ with ($.Param $i) }}
+  {{ if eq $i "categories" }}
+  <i class="fas fa-folder"></i>
+  {{ else }}
   <i class="fas fa-tags"></i>
+  {{ end }}
   {{ range $k := . }}
   <a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a>
   {{ end }}
