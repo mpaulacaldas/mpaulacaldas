@@ -6,6 +6,7 @@ theme = "hugo-xmin"
 googleAnalytics = "UA-142117256-1"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 footnotereturnlinkcontents = "↩"
+enable_highlightjs = "false"
 
 [markup]
   [markup.highlight]

@@ -5,10 +5,12 @@
 
 {{ template "_internal/google_analytics.html" . }}
 
+{{ if eq .Site.Params.enable_highlightjs "true" }}
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/stata.min.js"></script>
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+{{ end }}
 
 <script>
 hljs.configure({languages: []});
