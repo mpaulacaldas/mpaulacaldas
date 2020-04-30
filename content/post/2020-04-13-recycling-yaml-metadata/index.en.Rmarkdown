@@ -93,12 +93,13 @@ To do this, I took advantage of the [ymlthis](https://ymlthis.r-lib.org/index.ht
 
 ```{r}
 library(magrittr) # for the pipe %>%
+library(ymlthis)
 copy_yaml <- function(input, ...) {
   input %>% 
-    rmarkdown::yaml_front_matter() %>% # get the YAML metadata
-    ymlthis::yml() %>%                 # transform list to yml object
-    ymlthis::yml_replace(...) %>%      # replace fields specified in ...
-    ymlthis::use_yml()                 # copy YAML header to clipboard
+    yaml_front_matter() %>%   # get the YAML metadata
+    yml() %>%                 # transform list to yml object
+    yml_replace(...) %>%      # replace fields specified in ...
+    use_yml()                 # copy YAML header to clipboard
 }
 ```
 
@@ -117,10 +118,10 @@ I also wrote a similar function that creates a new R Markdown file with the YAML
 ```{r}
 create_with_yaml <- function(input, output, ...) {
   input %>% 
-    rmarkdown::yaml_front_matter() %>%
-    ymlthis::yml() %>%
-    ymlthis::yml_replace(...) %>%
-    ymlthis::use_rmarkdown(output) # creates an Rmd file
+    yaml_front_matter() %>%
+    yml() %>%
+    yml_replace(...) %>%
+    use_rmarkdown(output) # creates an Rmd file
 }
 ```
 
