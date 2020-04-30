@@ -10,7 +10,7 @@ enable_highlightjs = "false"
 
 [markup]
   [markup.highlight]
-    style = "xcode"
+    style = "github"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
