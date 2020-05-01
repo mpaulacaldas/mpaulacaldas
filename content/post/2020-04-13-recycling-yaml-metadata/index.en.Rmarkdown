@@ -13,12 +13,10 @@ slug: rmarkdown-yaml-metadata
 I recently discovered two nice features of the [rmarkdown](https://github.com/rstudio/rmarkdown/) package that deal with the YAML metadata of R Markdown documents: the `metadata` object and the `yaml_front_matter()` function. Both of these are generally used "behind the scenes" in the code of other R packages, but I found them very useful in my day-to-day reporting workflow. In this post, I will explain my understanding of these objects, and I will show a couple of helper functions I created with the [ymlthis](https://ymlthis.r-lib.org/index.html) package.  
 
 ```{r setup, include=FALSE}
-add_hlopts <- function(hlopts) {
-  paste0("{",
-    glue::glue_collapse(
-      glue::glue('{names(hlopts)}={hlopts}'),
-      sep = ","
-    ), "}"
+collapse_opts <- function(opts) {
+  glue::glue_collapse(
+    glue::glue('{names(opts)} = {opts}'),
+    sep = ","
   )
 }
 
@@ -27,7 +25,7 @@ knitr::knit_hooks$set(
     hlopts <- options$hlopts
     paste0(
       "```r ",
-      if (!is.null(hlopts)) add_hlopts(),
+      if (!is.null(hlopts)) paste0("{", collapse_opts(hlopts), "}"),
       "\n", glue::glue_collapse(x, sep = "\n"), "\n```\n"
     )
   },
@@ -35,9 +33,8 @@ knitr::knit_hooks$set(
     hlopts <- options$hlopts
     class  <- options$class.output
     paste0(
-      "```",
-      if (!is.null(class)) class,
-      if (!is.null(hlopts)) add_hlopts(),
+      "```", if (!is.null(class)) class,
+      if (!is.null(hlopts)) paste0("{", collapse_opts(hlopts), "}"),
       "\n", glue::glue_collapse(x, sep = "\n"), "\n```\n"
     )
   }
