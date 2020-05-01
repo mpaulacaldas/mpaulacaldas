@@ -8,6 +8,7 @@ tags:
   - rmarkdown
   - ymlthis
 slug: rmarkdown-yaml-metadata
+description: About rmarkdown's metadata object and the yamlthis package.
 ---
 
 I recently discovered two nice features of the [rmarkdown](https://github.com/rstudio/rmarkdown/) package that deal with the YAML metadata of R Markdown documents: the `metadata` object and the `yaml_front_matter()` function. Both of these are generally used "behind the scenes" in the code of other R packages, but I found them very useful in my day-to-day reporting workflow. In this post, I will explain my understanding of these objects, and I will show a couple of helper functions I created with the [ymlthis](https://ymlthis.r-lib.org/index.html) package.  
@@ -28,6 +29,7 @@ tags:
 - rmarkdown
 - ymlthis
 slug: rmarkdown-yaml-metadata
+description: About rmarkdown's metadata object and the yamlthis package.
 ---
 
 ```
@@ -54,6 +56,9 @@ metadata
 #> 
 #> $slug
 #> [1] "rmarkdown-yaml-metadata"
+#> 
+#> $description
+#> [1] "About rmarkdown's metadata object and the yamlthis package."
 
 ```
 
@@ -96,6 +101,9 @@ yaml_front_matter("index.en.Rmarkdown") # provide file path
 #> 
 #> $slug
 #> [1] "rmarkdown-yaml-metadata"
+#> 
+#> $description
+#> [1] "About rmarkdown's metadata object and the yamlthis package."
 
 ```
 
@@ -134,6 +142,7 @@ copy_yaml(
 #>   - rmarkdown
 #>   - ymlthis
 #>   slug: rmarkdown-yaml-metadata
+#>   description: About rmarkdown's metadata object and the yamlthis package.
 #>   ---
 #> ● Paste into R Markdown or YAML file
 ```
