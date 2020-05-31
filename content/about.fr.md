@@ -8,7 +8,7 @@ title: À propos
 
 Je m'appelle María Paula. Je suis utilisatrice et programmatrice de [<i class="fab fa-r-project"></i>](http://www.r-project.org). Je suis également [formatrice certifiée par RStudio](https://education.rstudio.com/trainers/).
 
-Jusqu'à récemment, je travaillais dans le conseil en économie, où j'utilisais R et Shiny pour construire des outils d'analytics pour analyser les effets concurrentiels des grandes opérations commerciales. Pendant cette période, j'ai également mené plusieurs formations sur R, et j'ai aidé mon équipe à adopter des outils et méthodes d'ingénieurs de logiciel pour améliorer nos processus de travail.
+Je travaille actuellement dans l'équipe de Statistiques et indicateurs regionaux de l'OCDE. Avant, je travaillais dans le conseil en économie avec Deloitte France, où j'utilisais R et Shiny pour construire des outils d'analytics pour analyser les effets concurrentiels des grandes opérations commerciales. Pendant cette période, j'ai également mené plusieurs formations sur R, et j'ai aidé mon équipe à adopter des outils et méthodes d'ingénieurs de logiciel pour améliorer nos processus de travail.
 
 Dans mon temps libre, j'aime contribuer aux initiatives de la communauté R. La plus récente d'entre elles concerne la traduction du livre [R for Data Science](https://r4ds.had.co.nz/) vers l'[espagnol](https://es.r4ds.hadley.nz/).
 

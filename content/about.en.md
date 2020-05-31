@@ -9,7 +9,7 @@ title: "About"
 My name is María Paula. I am a passionate [<i class="fab fa-r-project"></i>](http://www.r-project.org) user and programmer. 
 I am also an [RStudio Certified trainer](https://education.rstudio.com/trainers/).
 
-Until recently, I worked in economics consulting, using R and Shiny to build analytics tools to assess the effects of major commercial operations on competition. During this time, I led multiple training sessions on R, and helped my team adopt software engineering tools and practices to streamline our workflows. Prior to that, I studied for my Master's in economics at the Toulouse School of Economics.
+I currently work at the Regional Analysis and Statistics Unit of the OECD. Previously, I was an economics consultant at Deloitte France, where I used R and Shiny to build analytics tools to study the antitrust effects of major commercial operations. During this time, I led multiple training sessions on R, and helped my team adopt software engineering tools and practices to streamline our workflows.
 
 In my spare time, I like contributing to community-driven projects. Most recently, I was involved in the translation of the [R for Data Science](https://r4ds.had.co.nz/) book to [Spanish](https://es.r4ds.hadley.nz/).
 
