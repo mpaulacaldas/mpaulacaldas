@@ -1,10 +1,10 @@
-baseurl = "/"
+baseurl = "mpaulacaldas.com/"
 defaultContentLanguage = "en"
 enableEmoji = true
 title = "María Paula Caldas"
 theme = "hugo-xmin"
 googleAnalytics = "UA-142117256-1"
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 footnotereturnlinkcontents = "↩"
 enableHighlightjs = "false"
 
