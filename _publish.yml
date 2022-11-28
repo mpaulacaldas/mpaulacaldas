@@ -1,4 +1,6 @@
 - source: project
   netlify:
-    - id: "651de168-1bd3-4cf7-85be-f42f21554832"
-    - url: "https://www.mpaulacaldas.com/"
+    - id: 651de168-1bd3-4cf7-85be-f42f21554832
+    - url: 'https://www.mpaulacaldas.com/'
+    - id: af93a066-20ef-46b1-aa8a-bf803a1bf1c8
+      url: 'https://guileless-marzipan-17f90b.netlify.app'
