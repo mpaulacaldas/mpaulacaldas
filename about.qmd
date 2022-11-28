@@ -1,0 +1,31 @@
+---
+title: "María Paula Caldas"
+subtitle: "(she/her)"
+image: https://avatars.githubusercontent.com/u/33395215
+comments: false
+about:
+  id: about
+  template: trestles
+  image-shape: round
+  links:
+    - icon: mastodon
+      text: Fosstodon
+      href: https://fosstodon.org/@mpaulacaldas
+    - icon: github
+      text: Github
+      href: https://github.com/mapaulacaldas
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/mpaulacaldas/
+---
+
+::: {#about}
+Hello! I am María Paula[^name]. Welcome to my blog (or _bitácora_). I am a passionate [{{< fa brands r-project title="R">}}](https://www.r-project.org/about.html) user, programmer and [trainer](https://education.rstudio.com/trainers/).
+
+I work at the [OECD](https://www.oecd.org/cfe/) helping develop policy-relevant metrics at the local level. In the past, I worked as a data scientist and economics consultant.
+
+In my spare time, I like contributing to community-driven projects. I have presented for [R-Ladies](https://rladies.org/) chapters, reviewed for [rOpenSci](https://ropensci.org/), and helped translate [R for Data Science](https://r4ds.had.co.nz/) book to [Spanish](https://es.r4ds.hadley.nz/).
+
+:::
+
+[^name]: My given name, *María Paula*, is a hispanic composite name, so the two words are used as a unit.

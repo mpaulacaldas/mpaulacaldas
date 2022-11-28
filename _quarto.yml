@@ -1,0 +1,39 @@
+project:
+  type: website
+
+website:
+  title: "María Paula's blog"
+  site-url: "https://mpaulacaldas.com"
+  site-path: '/'
+  navbar:
+    right:
+      - text: "About"
+        file: about.qmd
+      - icon: github
+        href: "https://github.com/mpaulacaldas"
+      - icon: mastodon
+        href: "https://fosstodon.org/@mpaulacaldas"
+      - icon: rss
+        href: index.xml
+  comments:
+    utterances:
+      repo: mpaulacaldas/mpaulacaldas
+      label: comments
+  page-footer:
+    right: |
+      Built with [Quarto](https://quarto.org/)
+    left: |
+      María Paula Caldas, 2020&ndash;2022,
+      [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)
+
+format:
+  html:
+    theme:
+      - litera # I also like "pulse"
+      - mpc.scss
+    monofont: Monaco
+    link-external-newwindow: true
+    fontsize: 1.1rem
+    title-block-categories: false
+
+editor: source

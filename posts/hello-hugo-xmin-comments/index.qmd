@@ -1,0 +1,180 @@
+---
+title: 'Hello hugo-xmin!'
+subtitle: 'Part 1: Comments'
+author: 'María Paula Caldas'
+date: '2020-03-25'
+date-modified: '2022-11-20'
+order: 1
+categories:
+  - blogdown
+  - Hugo
+  - hugo-xmin
+toc: true
+description: |
+  How to enable and disable comments in the hugo-xmin theme.
+image: |
+  https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1546&q=80.jpg
+image-alt: |
+  Fountain pen on paper. Photo by Aaron Burden on Unsplash. 
+  https://unsplash.com/photos/y02jEX_B0O0
+code-copy: false
+---
+
+::: callout-warning
+## This post is outdated
+
+This post appeared when I was setting up my this blog. It was created using [blogdown](https://bookdown.org/yihui/blogdown/) and [hugo-xmin](https://github.com/yihui/hugo-xmin), and it had a simple look I still quite like. The advice should still hold true, but keep in mind that the look of the blog will not be the same as the current website, which is based on [quarto](https://quarto.org/)'s default website template.
+:::
+
+Starting an R-related blog has been on my personal to-do list for quite some time[^1]. This month I decided that I had procrastinated enough, so I went ahead and created this site using [blogdown](https://github.com/rstudio/blogdown), [Hugo](https://gohugo.io/) and the [hugo-xmin](https://github.com/yihui/hugo-xmin) theme. In the process, I learned a couple of things that may be worth sharing:
+
+[^1]: Ever since I heard of blogdown, which means I have basically been putting this off for *years*.
+
+-   How to enable comments *and* disable them on selected pages.
+-   How to set up multilingual mode.
+
+Since this is quite a bit of information, I will split it into two different posts. My advice is biased towards the **hugo-xmin** theme, which is a "boilerplate" theme for those wanting to learn more about customising hugo websites[^2]. If you want to read more about the theme, I recommend the [templates](https://bookdown.org/yihui/blogdown/templates.html) chapter of the blogdown book or the demo website at <https://xmin.yihui.org/>.
+
+[^2]: Or who simply like the way it looks.
+
+## Making changes to the theme
+
+Adding basic features to the hugo-xmin is relatively straight-forward given the [fantastic set of demos](https://github.com/yihui/hugo-xmin/pulls?q=is%3Apr+is%3Aopen+label%3Afeature) available as pull requests in the theme's Github repo. When implementing these changes to your own website, [the recommended workflow](https://bookdown.org/yihui/blogdown/custom-layouts.html) is to make the changes in the `layouts/` directory under the root directory of your website instead of `layouts/` directory under `themes/hugo-xmin/`. This makes it easier for you to keep track of the changes that you have made that stray from original theme.
+
+```txt
+your-website/
+├── config.toml
+├── ...
+├── themes/
+│   └── hugo-xmin/
+│       ├── ...
+│       └── layouts/
+│           ├── ...
+│           └── partials
+│               ├── foot_custom.html
+│               ├── footer.html
+│               ├── head_custom.html
+│               └── header.html
+└── layouts
+    └── partials
+        ├── foot_custom.html
+        └── head_custom.html
+```
+
+## Enabling Disqus comments
+
+Adding basic features to the hugo-xmin is relatively straight-forward given the [fantastic set of demos](https://github.com/yihui/hugo-xmin/pulls?q=is%3Apr+is%3Aopen+label%3Afeature) available as pull requests in the theme's Github repo. Pull request [#4](https://github.com/yihui/hugo-xmin/pull/4), for example, explains how to enable Disqus comments in your site.
+
+::: {.callout-note collapse="true" icon="false" appearance="simple"}
+## From the PR
+
+Add `{{ template "_internal/disqus.html" . }}` to `layouts/partials/foot_custom.html`:
+
+``` go
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+{{ template "_internal/disqus.html" . }}
+```
+
+Update the Disqus shortname in `config.toml`:
+
+``` toml
+title = "A minimal Hugo website"
+theme = "hugo-xmin"
+googleAnalytics = ""
+disqusShortname = "yihui"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+footnotereturnlinkcontents = "↩"
+```
+:::
+
+This example calls on one of Hugo's [internal templates](https://gohugo.io/templates/internal/), `_internal/disqus.html`. If you want to further customise the behaviour of Disqus comments, then it may be worthwhile to explore the [source code the template](https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/disqus.html).
+
+## Selectively disabling Disqus comments
+
+The above example will enable Disqus comments on all pages, including those where comments may not really be that useful, like in the Categories, Tags or About pages. For example, below is a screenshot of the Tags page of the hugo-xmin Disqus demo.
+
+![Screenshot of demo site with Disqus comments](disqus.png)
+
+Thankfully, [one of Yihui's comments](https://github.com/yihui/hugo-xmin/pull/4#issuecomment-322301277) on the PRs discussion also explained how to selectively disable Disqus comments on given pages via the YAML metadata.
+
+::: {.callout-note collapse="true" icon="false" appearance="simple"}
+## From the PR
+
+In `layouts/partials/foot_custom.html`
+
+``` html
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+{{ if not .Params.disable_comments }}
+{{ template "_internal/disqus.html" . }}
+{{ end }}
+```
+
+In the `.md` or `.Rmd` files of the pages where you want to disable comments:
+
+``` yaml
+---
+title: Title of post without comments
+disable_comments: true
+---
+```
+:::
+
+In the above example, the if condition ensures that Disqus comments won't be rendered if the `disable_comments` parameter is set to `true` in a given page.
+
+[Hussain Alsalman recently proposed an alternative approach](https://github.com/yihui/hugo-xmin/pull/39/files) that enables Disqus comments only for pages under the `content/post/` directory. Unlike the previous examples, this approach would require creating a new `single.html` template under `layouts/post/`. You may prefer this implementation if you are creating a website with many types of content directories (e.g. `content/software/`, `content/workshops/`, etc.) and you would rather not have to change the YAML metadata of every file that you create under these directories.
+
+## Extending to utterances 🔮
+
+I went down the Disqus rabbit-hole before I learned about [utterances](https://utteranc.es/#configuration), which is a lightweight, open-source, and ad-free alternative to Disqus comments. Luckily, extending the above steps to utterances was a breeze.
+
+::: {.callout-note collapse="true" icon="false" appearance="simple"}
+## Enabling utterances
+
+Before you get started, you need to [configure your Github repo for utterances](https://utteranc.es/#configuration). You will have to install the app on your website's repo, and create a dedicated issue label for the comments.
+
+Then, in `layouts/partials/foot_custom.html`:
+
+``` html
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+ 
+ <script async src="//yihui.name/js/center-img.js"></script>
+ 
+ {{ if not .Params.disable_comments }}
+ <script src="https://utteranc.es/client.js"
+         repo="[ENTER REPO HERE]"
+         issue-term="title"
+         theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+{{ end }}
+```
+
+Again, you disable comments on a page-by-page basis.
+
+``` yaml
+---
+title: Title of post without comments
+disable_comments: true
+---
+```
+:::
+
+If you want to learn more about migrating from Disqus to utterances, I highly recommend [Maëlle's blog post](https://masalmon.eu/2019/10/02/disqus/) on the subject. In her post, she explains what motivated her move, how she exported her old comments, and how she added utterances to her theme.
+
+One thing to keep in mind before choosing utterances is that you will be restricting comments to people who either have or are willing to open a Github account. This may therefore not be the best option for blogs intended for a general audience.
+
+## Conclusion
+
+In this post, I went into a lot of detail over a very narrow subject: comments. My intention was to summarise what I learned so that I can refer back to it later, and to hopefully help others who are getting started with Hugo themes. Please let me know if this helped or if anything was unclear!
+
+In the next post, I will explain how to enable multilingual mode in hugo-xmin.

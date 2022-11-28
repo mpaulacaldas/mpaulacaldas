@@ -1,8 +1,10 @@
 .Rproj.user
 .Rhistory
 .RData
-/public
-.DS_Store
-Thumbs.db
-/public/
-/resources/
+.Ruserdata
+
+/.quarto/
+
+_site/
+_freeze/
+_extensions/
